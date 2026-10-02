@@ -1,4 +1,6 @@
 class MovimientoStock:
+    """Describe un cambio ya registrado, asociado a un producto y un usuario."""
+
     def __init__(self, id_movimiento, id_product, id_user, cambio, producto=None, usuario=None):
         self.id = id_movimiento
         self.id_producto = id_product
@@ -15,6 +17,6 @@ class MovimientoStock:
         return "Sin cambio"
 
     def mostrar_datos(self):
-        nombre_producto = self.producto or f"Producto {self.id_producto}"
-        nombre_usuario = self.usuario or f"Usuario {self.id_usuario}"
+        nombre_producto = self.producto.nombre if hasattr(self.producto, "nombre") else self.producto or f"Producto {self.id_producto}"
+        nombre_usuario = self.usuario.nombre_completo() if hasattr(self.usuario, "nombre_completo") else self.usuario or f"Usuario {self.id_usuario}"
         return f"{self.tipo()} de {abs(self.cambio)} unidades de {nombre_producto}; realizado por {nombre_usuario}"

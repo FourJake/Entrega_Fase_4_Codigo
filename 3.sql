@@ -1,4 +1,7 @@
-use proyecto_w_python;
+-- Ejecutar UNA VEZ en una base nueva. No elimina ni reemplaza datos existentes.
+CREATE DATABASE IF NOT EXISTS proyecto_w_python
+    CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE proyecto_w_python;
 
 create table users (
 	id_user INT AUTO_INCREMENT PRIMARY KEY,

@@ -1,4 +1,6 @@
 class Usuario:
+    """Representa una persona y su rol según el campo admin de MySQL."""
+
     def __init__(self, id_user, user_name, surname, admin):
         self.id = id_user
         self.nombre = user_name
@@ -10,3 +12,7 @@ class Usuario:
 
     def puede_gestionar(self):
         return self.es_admin
+
+    def mostrar_datos(self):
+        rol = "Administrador" if self.puede_gestionar() else "Empleado"
+        return f"{self.nombre_completo()} | Rol: {rol}"
